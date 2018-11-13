@@ -1,0 +1,12 @@
+#lang racket
+;Юлія Педаш, ПІ-41
+;Варіант 16. Визначити процедуру РІЗНИЦЯ(X, Y), яка повертає різницю множин, представленими списками X, Y.
+(define (set-difference s1 s2)
+  (cond ((null? s1)
+         '())
+        ((not (member (car s1) s2))
+         (cons (car s1) (set-difference (cdr s1) s2)))
+        (else
+         (set-difference (cdr s1) s2))))
+
+(set-difference (list 0 1 2 4 25) (list -1 1 2 8 9 10))
